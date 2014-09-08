@@ -7,21 +7,28 @@
 //
 
 import UIKit
+import Foundation
 
-class SearchViewController: ViewController, UITextFieldDelegate {
+class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var nextMeetingHintView: UIVisualEffectView!
     @IBOutlet var resultTableView: UITableView!
     
+    var bytes: NSMutableData?
+    
+    var tableData = []
+    
     var transition: RoomCardSegue!
     
     var keyboardSize: CGSize!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
@@ -30,7 +37,21 @@ class SearchViewController: ViewController, UITextFieldDelegate {
         
         view.layer.cornerRadius = 5
         view.clipsToBounds = true
+        
+        var roomData = NSData(contentsOfURL: NSURL(string: "https://wayfinder.daneden.me/rooms.json"))
+        
+        println(roomData.length)
+        
+//        var roomJSON = NSJSONSerialization.JSONObjectWithData(roomData, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSArray
+        
+//        println(roomJSON.count)
+        
+        
+        self.resultTableView.registerClass(RoomTableViewCell.self, forCellReuseIdentifier: "roomCell")
+        resultTableView.reloadData()
+
     }
+
     
     override func viewDidAppear(animated: Bool) {
         
@@ -68,6 +89,30 @@ class SearchViewController: ViewController, UITextFieldDelegate {
                 
             })
         }
+    }
+    
+    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+//        return myObject.count
+        return 0
+    }
+    
+    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+        var cell = self.resultTableView.dequeueReusableCellWithIdentifier("TheRoomCell") as RoomTableViewCell
+        
+//        var tmpDict: NSDictionary = myObject[indexPath.row] as NSDictionary
+//        let text = tmpDict.objectForKeyedSubscript(roomName) as String
+//        let detail = tmpDict.objectForKeyedSubscript(roomLandmarks) as String
+
+//        cell.titleLabel.text = text
+////        cell.detailTextLabel.text = detail
+//        cell.descriptionLabel.text = detail
+        cell.locationLabel.text = "Some string"
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func didReceiveMemoryWarning() {

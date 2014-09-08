@@ -23,6 +23,8 @@ class RoomViewController: ViewController, MKMapViewDelegate {
 
         // Do any additional setup after loading the view.
         
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        
         view.layer.cornerRadius = 6
         view.layer.shadowColor = UIColor.blackColor().CGColor
         view.layer.shadowOpacity = 0.9
@@ -31,6 +33,7 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         view.clipsToBounds = true
         view.layer.borderColor = UIColor(hue: 0, saturation: 0, brightness: 1, alpha: 0.2).CGColor
         view.layer.borderWidth = 1
+        
         
         cardInitialCenter = view.center
         view.transform = CGAffineTransformMakeScale(0.9, 0.9)

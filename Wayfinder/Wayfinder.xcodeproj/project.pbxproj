@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7177ABBB19BE40C00009F635 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7177ABBA19BE40C00009F635 /* RoomTableViewCell.swift */; };
+		7181437C19BE54DB00931FD0 /* rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7181437B19BE54DB00931FD0 /* rooms.json */; };
 		D96F82A119BD50C000C65194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F82A019BD50C000C65194 /* AppDelegate.swift */; };
 		D96F82A319BD50C000C65194 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F82A219BD50C000C65194 /* ViewController.swift */; };
 		D96F82A619BD50C000C65194 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96F82A419BD50C000C65194 /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7177ABBA19BE40C00009F635 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		7181437B19BE54DB00931FD0 /* rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rooms.json; sourceTree = "<group>"; };
 		D96F829B19BD50C000C65194 /* Wayfinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wayfinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96F829F19BD50C000C65194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D96F82A019BD50C000C65194 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +70,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7177ABB919BE40A90009F635 /* Table View Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7177ABBA19BE40C00009F635 /* RoomTableViewCell.swift */,
+			);
+			name = "Table View Cells";
+			sourceTree = "<group>";
+		};
 		D96F829219BD50C000C65194 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +101,7 @@
 		D96F829D19BD50C000C65194 /* Wayfinder */ = {
 			isa = PBXGroup;
 			children = (
+				7177ABB919BE40A90009F635 /* Table View Cells */,
 				D96F82C619BD6B4800C65194 /* Segues */,
 				D96F82BD19BD50E900C65194 /* View Controllers */,
 				D96F82A019BD50C000C65194 /* AppDelegate.swift */,
@@ -103,6 +116,7 @@
 		D96F829E19BD50C000C65194 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7181437B19BE54DB00931FD0 /* rooms.json */,
 				D96F829F19BD50C000C65194 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -224,6 +238,7 @@
 			files = (
 				D96F82A619BD50C000C65194 /* Main.storyboard in Resources */,
 				D96F82A819BD50C000C65194 /* Images.xcassets in Resources */,
+				7181437C19BE54DB00931FD0 /* rooms.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7177ABBB19BE40C00009F635 /* RoomTableViewCell.swift in Sources */,
 				D96F82BF19BD510200C65194 /* SearchViewController.swift in Sources */,
 				D96F82A319BD50C000C65194 /* ViewController.swift in Sources */,
 				D96F82A119BD50C000C65194 /* AppDelegate.swift in Sources */,
