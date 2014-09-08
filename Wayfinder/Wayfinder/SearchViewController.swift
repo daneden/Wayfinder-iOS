@@ -12,6 +12,7 @@ class SearchViewController: ViewController, UITextFieldDelegate {
 
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var nextMeetingHintView: UIVisualEffectView!
+    @IBOutlet var resultTableView: UITableView!
     
     var transition: RoomCardSegue!
     
@@ -26,6 +27,9 @@ class SearchViewController: ViewController, UITextFieldDelegate {
         
         searchTextField.delegate = self
         searchTextField.becomeFirstResponder()
+        
+        view.layer.cornerRadius = 6
+        view.clipsToBounds = true
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -36,11 +40,7 @@ class SearchViewController: ViewController, UITextFieldDelegate {
         var userInfo = notification.userInfo!
         keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size
         
-        if searchTextField.text == nil {
-            searchTextField.center.y = 40
-        } else {
-            searchTextField.center.y = CGFloat(self.view.center.y - CGFloat(keyboardSize.height/2.0))
-        }
+        onSearchEdit(searchTextField)
         
         nextMeetingHintView.frame.origin.y = view.frame.height - (nextMeetingHintView.frame.height + keyboardSize.height)
     }
@@ -54,12 +54,16 @@ class SearchViewController: ViewController, UITextFieldDelegate {
         if searchTextField.text == "" {
             UIView.animateWithDuration(0.2, animations: {
                 self.searchTextField.center.y = CGFloat(self.view.center.y - CGFloat(self.keyboardSize.height/2.0))
+                self.resultTableView.frame.origin.y = self.view.frame.height
+                self.resultTableView.alpha = 0
                 }, completion: { (finished: Bool) -> Void in
                 
             })
         } else {
             UIView.animateWithDuration(0.2, animations: {
                 self.searchTextField.center.y = 60
+                self.resultTableView.frame.origin.y = 86
+                self.resultTableView.alpha = 1
                 }, completion: { (finished: Bool) -> Void in
                 
             })
