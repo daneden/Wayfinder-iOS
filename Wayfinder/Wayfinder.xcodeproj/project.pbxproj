@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D96F82A119BD50C000C65194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F82A019BD50C000C65194 /* AppDelegate.swift */; };
+		D96F82A319BD50C000C65194 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F82A219BD50C000C65194 /* ViewController.swift */; };
+		D96F82A619BD50C000C65194 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D96F82A419BD50C000C65194 /* Main.storyboard */; };
+		D96F82A819BD50C000C65194 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D96F82A719BD50C000C65194 /* Images.xcassets */; };
+		D96F82B419BD50C000C65194 /* WayfinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F82B319BD50C000C65194 /* WayfinderTests.swift */; };
+		D96F82BF19BD510200C65194 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F82BE19BD510200C65194 /* SearchViewController.swift */; };
+		D96F82C119BD512200C65194 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F82C019BD512200C65194 /* RoomViewController.swift */; };
+		D96F82C319BD546D00C65194 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96F82C219BD546D00C65194 /* CoreLocation.framework */; };
+		D96F82C519BD549000C65194 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96F82C419BD549000C65194 /* MapKit.framework */; };
+		D99A7FCA19BD6B86008EEA4B /* RoomCardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99A7FC919BD6B86008EEA4B /* RoomCardSegue.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D96F82AE19BD50C000C65194 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D96F829319BD50C000C65194 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D96F829A19BD50C000C65194;
+			remoteInfo = Wayfinder;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D96F829B19BD50C000C65194 /* Wayfinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wayfinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D96F829F19BD50C000C65194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D96F82A019BD50C000C65194 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D96F82A219BD50C000C65194 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D96F82A519BD50C000C65194 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D96F82A719BD50C000C65194 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D96F82AD19BD50C000C65194 /* WayfinderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WayfinderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D96F82B219BD50C000C65194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D96F82B319BD50C000C65194 /* WayfinderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WayfinderTests.swift; sourceTree = "<group>"; };
+		D96F82BE19BD510200C65194 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D96F82C019BD512200C65194 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		D96F82C219BD546D00C65194 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D96F82C419BD549000C65194 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		D99A7FC919BD6B86008EEA4B /* RoomCardSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomCardSegue.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D96F829819BD50C000C65194 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96F82C519BD549000C65194 /* MapKit.framework in Frameworks */,
+				D96F82C319BD546D00C65194 /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D96F82AA19BD50C000C65194 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D96F829219BD50C000C65194 = {
+			isa = PBXGroup;
+			children = (
+				D96F82C419BD549000C65194 /* MapKit.framework */,
+				D96F82C219BD546D00C65194 /* CoreLocation.framework */,
+				D96F829D19BD50C000C65194 /* Wayfinder */,
+				D96F82B019BD50C000C65194 /* WayfinderTests */,
+				D96F829C19BD50C000C65194 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D96F829C19BD50C000C65194 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D96F829B19BD50C000C65194 /* Wayfinder.app */,
+				D96F82AD19BD50C000C65194 /* WayfinderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D96F829D19BD50C000C65194 /* Wayfinder */ = {
+			isa = PBXGroup;
+			children = (
+				D96F82C619BD6B4800C65194 /* Segues */,
+				D96F82BD19BD50E900C65194 /* View Controllers */,
+				D96F82A019BD50C000C65194 /* AppDelegate.swift */,
+				D96F82A219BD50C000C65194 /* ViewController.swift */,
+				D96F82A419BD50C000C65194 /* Main.storyboard */,
+				D96F82A719BD50C000C65194 /* Images.xcassets */,
+				D96F829E19BD50C000C65194 /* Supporting Files */,
+			);
+			path = Wayfinder;
+			sourceTree = "<group>";
+		};
+		D96F829E19BD50C000C65194 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D96F829F19BD50C000C65194 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D96F82B019BD50C000C65194 /* WayfinderTests */ = {
+			isa = PBXGroup;
+			children = (
+				D96F82B319BD50C000C65194 /* WayfinderTests.swift */,
+				D96F82B119BD50C000C65194 /* Supporting Files */,
+			);
+			path = WayfinderTests;
+			sourceTree = "<group>";
+		};
+		D96F82B119BD50C000C65194 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D96F82B219BD50C000C65194 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D96F82BD19BD50E900C65194 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D96F82BE19BD510200C65194 /* SearchViewController.swift */,
+				D96F82C019BD512200C65194 /* RoomViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D96F82C619BD6B4800C65194 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				D99A7FC919BD6B86008EEA4B /* RoomCardSegue.swift */,
+			);
+			name = Segues;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D96F829A19BD50C000C65194 /* Wayfinder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D96F82B719BD50C000C65194 /* Build configuration list for PBXNativeTarget "Wayfinder" */;
+			buildPhases = (
+				D96F829719BD50C000C65194 /* Sources */,
+				D96F829819BD50C000C65194 /* Frameworks */,
+				D96F829919BD50C000C65194 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wayfinder;
+			productName = Wayfinder;
+			productReference = D96F829B19BD50C000C65194 /* Wayfinder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D96F82AC19BD50C000C65194 /* WayfinderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D96F82BA19BD50C000C65194 /* Build configuration list for PBXNativeTarget "WayfinderTests" */;
+			buildPhases = (
+				D96F82A919BD50C000C65194 /* Sources */,
+				D96F82AA19BD50C000C65194 /* Frameworks */,
+				D96F82AB19BD50C000C65194 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D96F82AF19BD50C000C65194 /* PBXTargetDependency */,
+			);
+			name = WayfinderTests;
+			productName = WayfinderTests;
+			productReference = D96F82AD19BD50C000C65194 /* WayfinderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D96F829319BD50C000C65194 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Daniel Eden";
+				TargetAttributes = {
+					D96F829A19BD50C000C65194 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					D96F82AC19BD50C000C65194 = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = D96F829A19BD50C000C65194;
+					};
+				};
+			};
+			buildConfigurationList = D96F829619BD50C000C65194 /* Build configuration list for PBXProject "Wayfinder" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D96F829219BD50C000C65194;
+			productRefGroup = D96F829C19BD50C000C65194 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D96F829A19BD50C000C65194 /* Wayfinder */,
+				D96F82AC19BD50C000C65194 /* WayfinderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D96F829919BD50C000C65194 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96F82A619BD50C000C65194 /* Main.storyboard in Resources */,
+				D96F82A819BD50C000C65194 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D96F82AB19BD50C000C65194 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D96F829719BD50C000C65194 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96F82BF19BD510200C65194 /* SearchViewController.swift in Sources */,
+				D96F82A319BD50C000C65194 /* ViewController.swift in Sources */,
+				D96F82A119BD50C000C65194 /* AppDelegate.swift in Sources */,
+				D99A7FCA19BD6B86008EEA4B /* RoomCardSegue.swift in Sources */,
+				D96F82C119BD512200C65194 /* RoomViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D96F82A919BD50C000C65194 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96F82B419BD50C000C65194 /* WayfinderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D96F82AF19BD50C000C65194 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D96F829A19BD50C000C65194 /* Wayfinder */;
+			targetProxy = D96F82AE19BD50C000C65194 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D96F82A419BD50C000C65194 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D96F82A519BD50C000C65194 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D96F82B519BD50C000C65194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D96F82B619BD50C000C65194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D96F82B819BD50C000C65194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Wayfinder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D96F82B919BD50C000C65194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				INFOPLIST_FILE = Wayfinder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D96F82BB19BD50C000C65194 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WayfinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wayfinder.app/Wayfinder";
+			};
+			name = Debug;
+		};
+		D96F82BC19BD50C000C65194 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = WayfinderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wayfinder.app/Wayfinder";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D96F829619BD50C000C65194 /* Build configuration list for PBXProject "Wayfinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96F82B519BD50C000C65194 /* Debug */,
+				D96F82B619BD50C000C65194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D96F82B719BD50C000C65194 /* Build configuration list for PBXNativeTarget "Wayfinder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96F82B819BD50C000C65194 /* Debug */,
+				D96F82B919BD50C000C65194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D96F82BA19BD50C000C65194 /* Build configuration list for PBXNativeTarget "WayfinderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D96F82BB19BD50C000C65194 /* Debug */,
+				D96F82BC19BD50C000C65194 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D96F829319BD50C000C65194 /* Project object */;
+}
