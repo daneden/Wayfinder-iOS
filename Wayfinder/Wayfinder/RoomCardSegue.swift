@@ -46,7 +46,7 @@ class RoomCardSegue: NSObject, UIViewControllerTransitioningDelegate, UIViewCont
                     
                     UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
                     
-                    fromViewController.view.alpha = 0.4
+                    fromViewController.view.alpha = 0.2
                     
                     toViewController.view.alpha = 1
                     toViewController.view.transform = CGAffineTransformMakeScale(0.9, 0.9)

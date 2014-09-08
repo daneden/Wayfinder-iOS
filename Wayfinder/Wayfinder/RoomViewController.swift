@@ -14,8 +14,9 @@ class RoomViewController: ViewController, MKMapViewDelegate {
     var cardInitialCenter: CGPoint!
     var transformation: CGAffineTransform!
     
+    @IBOutlet var roomMetaView: UIVisualEffectView!
 
-    @IBOutlet var mapView: MKMapView!
+    @IBOutlet var cardMapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,29 +25,31 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         
         view.layer.cornerRadius = 6
         view.layer.shadowColor = UIColor.blackColor().CGColor
-        view.layer.shadowOpacity = 0.5
-        view.layer.shadowOffset = CGSizeMake(0, 10)
+        view.layer.shadowOpacity = 0.9
+        view.layer.shadowOffset = CGSizeMake(0, 2)
         view.layer.shadowRadius = 10
         view.clipsToBounds = true
+        view.layer.borderColor = UIColor(hue: 0, saturation: 0, brightness: 1, alpha: 0.2).CGColor
+        view.layer.borderWidth = 1
         
         cardInitialCenter = view.center
         view.transform = CGAffineTransformMakeScale(0.9, 0.9)
         transformation = view.transform
         
-        mapView.showsUserLocation = true
+        cardMapView.showsUserLocation = true
+        cardMapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: false)
         
-        // This will eventually add a nice inner shadow to the whole card, but for some reason it's not working.
-//        var layerWidth = view.frame.width - 2 as CGFloat
-//        var layerHeight = view.frame.height - 2 as CGFloat
-//        var shadowLayer = UIView(frame: CGRect(x: 100, y: 100, width: layerWidth, height: layerHeight))
-//        shadowLayer.layer.cornerRadius = 5
-//        shadowLayer.layer.shadowColor = UIColor.redColor().CGColor
-//        shadowLayer.layer.shadowOpacity = 0.9
-//        shadowLayer.layer.shadowOffset = CGSizeMake(0, 10)
-//        shadowLayer.layer.shadowRadius = 1
-//        shadowLayer.userInteractionEnabled = false
-//        
-//        view.addSubview(shadowLayer)
+        var officeLocation = CLLocationCoordinate2DMake(37.776378, -122.391897)
+        var annotation = MKPointAnnotation()
+        annotation.setCoordinate(officeLocation)
+        annotation.title = "Dropbox HQ"
+        annotation.subtitle = "San Francisco, CA"
+        cardMapView.addAnnotation(annotation)
+    }
+    
+    func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
+        var mapRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+        mapView.setRegion(mapRegion, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

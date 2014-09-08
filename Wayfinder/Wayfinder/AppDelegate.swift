@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
         locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     // Location Manager Delegate stuff
