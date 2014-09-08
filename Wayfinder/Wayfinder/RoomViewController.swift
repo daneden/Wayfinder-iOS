@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import MapKit
 
-class RoomViewController: ViewController {
+class RoomViewController: ViewController, MKMapViewDelegate {
 
     var cardInitialCenter: CGPoint!
     var transformation: CGAffineTransform!
+    
+
+    @IBOutlet var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,21 @@ class RoomViewController: ViewController {
         cardInitialCenter = view.center
         view.transform = CGAffineTransformMakeScale(0.9, 0.9)
         transformation = view.transform
+        
+        mapView.showsUserLocation = true
+        
+        // This will eventually add a nice inner shadow to the whole card, but for some reason it's not working.
+//        var layerWidth = view.frame.width - 2 as CGFloat
+//        var layerHeight = view.frame.height - 2 as CGFloat
+//        var shadowLayer = UIView(frame: CGRect(x: 100, y: 100, width: layerWidth, height: layerHeight))
+//        shadowLayer.layer.cornerRadius = 5
+//        shadowLayer.layer.shadowColor = UIColor.redColor().CGColor
+//        shadowLayer.layer.shadowOpacity = 0.9
+//        shadowLayer.layer.shadowOffset = CGSizeMake(0, 10)
+//        shadowLayer.layer.shadowRadius = 1
+//        shadowLayer.userInteractionEnabled = false
+//        
+//        view.addSubview(shadowLayer)
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,14 +76,14 @@ class RoomViewController: ViewController {
         } else if gesture.state == UIGestureRecognizerState.Ended {
             
             if translation.x > 50 {
-                UIView.animateWithDuration(0.5, animations: {
+                UIView.animateWithDuration(0.2, animations: {
                     self.view.center.x += self.view.frame.width
                     }, completion: { (finished: Bool) -> Void in
                         self.dismissViewControllerAnimated(true, completion: nil)
                     })
                 
             } else if translation.x < -50 {
-                UIView.animateWithDuration(0.5, animations: {
+                UIView.animateWithDuration(0.2, animations: {
                     self.view.center.x -= self.view.frame.width
                     }, completion: { (finished: Bool) -> Void in
                         self.dismissViewControllerAnimated(true, completion: nil)

@@ -5,14 +5,16 @@
       "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "7.0",
+      "filename" : "apple-touch-startup-image-640x920.png",
       "scale" : "2x"
     },
     {
-      "orientation" : "portrait",
+      "extent" : "full-screen",
       "idiom" : "iphone",
       "subtype" : "retina4",
-      "extent" : "full-screen",
+      "filename" : "apple-touch-startup-image-r4.png",
       "minimum-system-version" : "7.0",
+      "orientation" : "portrait",
       "scale" : "2x"
     }
   ],
