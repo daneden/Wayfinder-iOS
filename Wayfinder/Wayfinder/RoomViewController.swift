@@ -37,7 +37,7 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         transformation = view.transform
         
         cardMapView.showsUserLocation = true
-        cardMapView.setUserTrackingMode(MKUserTrackingMode.Follow, animated: false)
+        cardMapView.setUserTrackingMode(MKUserTrackingMode.None, animated: false)
         
         var officeLocation = CLLocationCoordinate2DMake(37.776378, -122.391897)
         var annotation = MKPointAnnotation()
@@ -45,11 +45,15 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         annotation.title = "Dropbox HQ"
         annotation.subtitle = "San Francisco, CA"
         cardMapView.addAnnotation(annotation)
+        
+        var mapRegion = MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
+        cardMapView.setRegion(mapRegion, animated: false)
     }
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
-        var mapRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
-        mapView.setRegion(mapRegion, animated: false)
+        // This zooms the map into the user location, but it makes more sense to center in on the room
+//        var mapRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+//        mapView.setRegion(mapRegion, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

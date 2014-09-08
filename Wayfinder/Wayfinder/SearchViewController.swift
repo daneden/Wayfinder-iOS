@@ -28,7 +28,7 @@ class SearchViewController: ViewController, UITextFieldDelegate {
         searchTextField.delegate = self
         searchTextField.becomeFirstResponder()
         
-        view.layer.cornerRadius = 6
+        view.layer.cornerRadius = 5
         view.clipsToBounds = true
     }
     
