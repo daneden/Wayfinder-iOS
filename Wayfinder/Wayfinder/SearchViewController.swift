@@ -18,6 +18,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     var bytes: NSMutableData?
     
     var tableData = []
+    var rooms: [Room]!
     
     var transition: RoomCardSegue!
     
@@ -40,11 +41,19 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         
         var roomData = NSData(contentsOfURL: NSURL(string: "https://wayfinder.daneden.me/rooms.json"))
         
-        println(roomData.length)
+        var roomJSON = NSJSONSerialization.JSONObjectWithData(roomData, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSMutableArray
         
-//        var roomJSON = NSJSONSerialization.JSONObjectWithData(roomData, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSArray
         
-//        println(roomJSON.count)
+        for (object) in roomJSON {
+            var roomDict = object as Dictionary<String, AnyObject>
+            
+            var room = Room(json: roomDict)
+            
+            println(room.name)
+            println(room.landmarks)
+            
+        }
+        
         
         
         self.resultTableView.registerClass(RoomTableViewCell.self, forCellReuseIdentifier: "roomCell")
@@ -91,22 +100,14 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         }
     }
     
-    func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return myObject.count
-        return 0
+        return 1
     }
     
-    func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.resultTableView.dequeueReusableCellWithIdentifier("TheRoomCell") as RoomTableViewCell
         
-//        var tmpDict: NSDictionary = myObject[indexPath.row] as NSDictionary
-//        let text = tmpDict.objectForKeyedSubscript(roomName) as String
-//        let detail = tmpDict.objectForKeyedSubscript(roomLandmarks) as String
-
-//        cell.titleLabel.text = text
-////        cell.detailTextLabel.text = detail
-//        cell.descriptionLabel.text = detail
-        cell.locationLabel.text = "Some string"
         
         return cell
     }
@@ -124,7 +125,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         var destinationVC = segue.destinationViewController as UIViewController
         
         destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom

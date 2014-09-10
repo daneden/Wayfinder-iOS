@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Search View Controller-->
@@ -31,45 +32,54 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="0.0" reuseIdentifier="TheRoomCell" rowHeight="74" id="iVA-ki-4xf" customClass="RoomTableViewCell" customModule="Wayfinder" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" indentationWidth="0.0" reuseIdentifier="TheRoomCell" rowHeight="74" id="iVA-ki-4xf" customClass="RoomTableViewCell" customModule="Wayfinder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iVA-ki-4xf" id="qmz-Om-Xts">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="All Seasons" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejH-o3-nLi">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All Seasons" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejH-o3-nLi">
                                                     <rect key="frame" x="10" y="8" width="300" height="21"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.23921570181846619" green="0.27450981736183167" blue="0.30196079611778259" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="In Biggie, between the snacks and the elevators" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQU-cY-10z">
-                                                    <rect key="frame" x="10" y="29" width="300" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Biggie, between the snacks and the elevators" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQU-cY-10z">
+                                                    <rect key="frame" x="10" y="28" width="300" height="17"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.23921570181846619" green="0.27450981736183167" blue="0.30196079611778259" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="4 People • 4th Floor Berry St" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIq-nz-ghm">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 People • 4th Floor Berry St" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIq-nz-ghm">
                                                     <rect key="frame" x="10" y="47" width="300" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="riy-hP-Mdp"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" red="0.23921570181846619" green="0.27450981736183167" blue="0.30196079611778259" alpha="0.5" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <gestureRecognizers/>
                                             <constraints>
-                                                <constraint firstItem="XQU-cY-10z" firstAttribute="top" secondItem="ejH-o3-nLi" secondAttribute="bottom" id="9MP-hL-nYV"/>
+                                                <constraint firstItem="XQU-cY-10z" firstAttribute="top" secondItem="ejH-o3-nLi" secondAttribute="bottom" constant="-1" id="9MP-hL-nYV"/>
                                                 <constraint firstAttribute="trailing" secondItem="IIq-nz-ghm" secondAttribute="trailing" constant="10" id="LmT-fH-DgE"/>
-                                                <constraint firstItem="IIq-nz-ghm" firstAttribute="top" secondItem="XQU-cY-10z" secondAttribute="bottom" constant="1" id="MHF-do-qzy"/>
+                                                <constraint firstItem="IIq-nz-ghm" firstAttribute="top" secondItem="XQU-cY-10z" secondAttribute="bottom" constant="2" id="MHF-do-qzy"/>
                                                 <constraint firstAttribute="trailing" secondItem="ejH-o3-nLi" secondAttribute="trailing" constant="10" id="Suc-fl-k7i"/>
-                                                <constraint firstItem="IIq-nz-ghm" firstAttribute="top" secondItem="XQU-cY-10z" secondAttribute="bottom" constant="1" id="XWy-er-xCR"/>
+                                                <constraint firstItem="IIq-nz-ghm" firstAttribute="top" secondItem="XQU-cY-10z" secondAttribute="bottom" constant="2" id="XWy-er-xCR"/>
                                                 <constraint firstAttribute="bottom" secondItem="IIq-nz-ghm" secondAttribute="bottom" constant="10" id="dlh-X7-sUj"/>
                                                 <constraint firstItem="ejH-o3-nLi" firstAttribute="leading" secondItem="qmz-Om-Xts" secondAttribute="leading" constant="10" id="eBM-p9-oUg"/>
-                                                <constraint firstItem="XQU-cY-10z" firstAttribute="top" secondItem="ejH-o3-nLi" secondAttribute="bottom" id="qoa-H1-rJE"/>
+                                                <constraint firstItem="XQU-cY-10z" firstAttribute="top" secondItem="ejH-o3-nLi" secondAttribute="bottom" constant="-1" id="qoa-H1-rJE"/>
                                                 <constraint firstItem="XQU-cY-10z" firstAttribute="leading" secondItem="qmz-Om-Xts" secondAttribute="leading" constant="10" id="uBS-Qa-pdn"/>
                                                 <constraint firstItem="ejH-o3-nLi" firstAttribute="top" secondItem="qmz-Om-Xts" secondAttribute="top" constant="8" id="upF-0K-obQ"/>
                                                 <constraint firstItem="IIq-nz-ghm" firstAttribute="leading" secondItem="qmz-Om-Xts" secondAttribute="leading" constant="10" id="vB8-c8-JMU"/>
+                                                <constraint firstItem="IIq-nz-ghm" firstAttribute="top" secondItem="XQU-cY-10z" secondAttribute="bottom" constant="2" id="vOV-lw-nCm"/>
                                                 <constraint firstAttribute="trailing" secondItem="XQU-cY-10z" secondAttribute="trailing" constant="10" id="wgc-u7-Xks"/>
+                                                <constraint firstItem="XQU-cY-10z" firstAttribute="top" secondItem="qmz-Om-Xts" secondAttribute="topMargin" constant="20" id="xfb-iE-uGR"/>
                                             </constraints>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="Ld3-o5-xe7" appends="YES" id="JOh-pO-RyL"/>
+                                            </connections>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="XQU-cY-10z" id="TCA-NY-vvh"/>
@@ -120,9 +130,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="pOb-fW-UPc">
+                <tapGestureRecognizer id="pOb-fW-UPc" userLabel="Meeting Tap Gesture Recognizer">
                     <connections>
                         <segue destination="BVd-Wy-eQJ" kind="modal" id="YxQ-Rc-iDW"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Ld3-o5-xe7" userLabel="Result Tap Gesture Recognizer">
+                    <connections>
+                        <segue destination="BVd-Wy-eQJ" kind="modal" id="28j-Rq-XIW"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -201,10 +216,10 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4">
-            <size key="portraitSize" width="320" height="568"/>
-            <size key="landscapeSize" width="568" height="320"/>
-        </simulatedScreenMetrics>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="YxQ-Rc-iDW"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.24478796124458313" green="0.61356121301651001" blue="0.91679513454437256" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

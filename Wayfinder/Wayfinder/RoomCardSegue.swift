@@ -23,14 +23,14 @@ class RoomCardSegue: NSObject, UIViewControllerTransitioningDelegate, UIViewCont
         return self
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning!) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
         return duration
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning!) {
+    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         var containerView = transitionContext.containerView()
-        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)
-        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)
+        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as UIViewController!
+        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as UIViewController!
         
         if (isPresenting == true) {
             containerView.addSubview(toViewController.view)

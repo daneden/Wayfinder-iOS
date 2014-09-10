@@ -19,6 +19,7 @@
 		D96F82C319BD546D00C65194 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96F82C219BD546D00C65194 /* CoreLocation.framework */; };
 		D96F82C519BD549000C65194 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96F82C419BD549000C65194 /* MapKit.framework */; };
 		D99A7FCA19BD6B86008EEA4B /* RoomCardSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99A7FC919BD6B86008EEA4B /* RoomCardSegue.swift */; };
+		D9E394A319C034C6005912E4 /* Room.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E394A219C034C6005912E4 /* Room.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		D96F82C219BD546D00C65194 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D96F82C419BD549000C65194 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D99A7FC919BD6B86008EEA4B /* RoomCardSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomCardSegue.swift; sourceTree = "<group>"; };
+		D9E394A219C034C6005912E4 /* Room.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Room.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				D96F82A419BD50C000C65194 /* Main.storyboard */,
 				D96F82A719BD50C000C65194 /* Images.xcassets */,
 				D96F829E19BD50C000C65194 /* Supporting Files */,
+				D9E394A219C034C6005912E4 /* Room.swift */,
 			);
 			path = Wayfinder;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				7177ABBB19BE40C00009F635 /* RoomTableViewCell.swift in Sources */,
 				D96F82BF19BD510200C65194 /* SearchViewController.swift in Sources */,
+				D9E394A319C034C6005912E4 /* Room.swift in Sources */,
 				D96F82A319BD50C000C65194 /* ViewController.swift in Sources */,
 				D96F82A119BD50C000C65194 /* AppDelegate.swift in Sources */,
 				D99A7FCA19BD6B86008EEA4B /* RoomCardSegue.swift in Sources */,
