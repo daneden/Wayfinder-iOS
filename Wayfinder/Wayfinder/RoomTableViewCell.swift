@@ -14,6 +14,8 @@ class RoomTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     
+    var roomObject: Room!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

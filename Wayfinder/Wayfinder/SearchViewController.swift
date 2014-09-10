@@ -18,11 +18,12 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     var bytes: NSMutableData?
     
     var tableData = []
-    var rooms: [Room]!
+    var rooms: NSMutableArray = []
+    var selectedRoom: Room!
     
     var transition: RoomCardSegue!
     
-    var keyboardSize: CGSize!
+    var keyboardSize: CGSize! = CGSize(width: 320.0, height: 253.0)
     
     
     override func viewDidLoad() {
@@ -49,8 +50,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
             
             var room = Room(json: roomDict)
             
-            println(room.name)
-            println(room.landmarks)
+            rooms.addObject(room)
             
         }
         
@@ -60,17 +60,28 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         resultTableView.reloadData()
 
     }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        self.view.endEditing(true)
+    }
 
     
-    override func viewDidAppear(animated: Bool) {
-        
+    override func viewWillAppear(animated: Bool) {
+        searchTextField.center.y = CGFloat(self.view.center.y - CGFloat(self.keyboardSize.height/2.0))
+        resultTableView.alpha = 0
     }
     
     func keyboardWillShow(notification: NSNotification!) {
         var userInfo = notification.userInfo!
         keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size
         
-        onSearchEdit(searchTextField)
+        if searchTextField.text == "" {
+            searchTextField.center.y = CGFloat(self.view.center.y - CGFloat(self.keyboardSize.height/2.0))
+            resultTableView.alpha = 0
+        } else {
+            self.searchTextField.center.y = 60
+            resultTableView.alpha = 1
+        }
         
         nextMeetingHintView.frame.origin.y = view.frame.height - (nextMeetingHintView.frame.height + keyboardSize.height)
     }
@@ -82,38 +93,55 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     
     @IBAction func onSearchEdit(sender: AnyObject) {
         if searchTextField.text == "" {
-            UIView.animateWithDuration(0.2, animations: {
-                self.searchTextField.center.y = CGFloat(self.view.center.y - CGFloat(self.keyboardSize.height/2.0))
-                self.resultTableView.frame.origin.y = self.view.frame.height
-                self.resultTableView.alpha = 0
-                }, completion: { (finished: Bool) -> Void in
-                
-            })
+            
+            self.resultTableView.alpha = 0
+                    
+                    
+            UIView.animateWithDuration(0.2,
+                delay: 0,
+                options: nil,
+                animations: {
+                    self.searchTextField.center.y = CGFloat(self.view.center.y - CGFloat(self.keyboardSize.height/2.0))
+            }, completion: nil)
+            
         } else {
+            
             UIView.animateWithDuration(0.2, animations: {
                 self.searchTextField.center.y = 60
-                self.resultTableView.frame.origin.y = 86
-                self.resultTableView.alpha = 1
-                }, completion: { (finished: Bool) -> Void in
                 
+                }, completion: { (finished: Bool) -> Void in
+                    UIView.animateWithDuration(0.2, animations: {
+                        self.resultTableView.alpha = 1
+                    })
             })
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return myObject.count
-        return 1
+        return rooms.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.resultTableView.dequeueReusableCellWithIdentifier("TheRoomCell") as RoomTableViewCell
+        var i: NSNumber = indexPath.row
+        var theRoom: Room = rooms[i] as Room
         
+        cell.titleLabel.text = theRoom.name
+        cell.descriptionLabel.text = Array(theRoom.landmarks).combine(",")
+        cell.locationLabel.text = theRoom.floor
+        cell.roomObject = theRoom
         
         return cell
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+        var cell = tableView.cellForRowAtIndexPath(indexPath) as RoomTableViewCell
+        
+        selectedRoom = cell.roomObject
+        
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        performSegueWithIdentifier("resultCellToCardSegue", sender: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -126,9 +154,10 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var destinationVC = segue.destinationViewController as UIViewController
+        var destinationVC = segue.destinationViewController as RoomViewController
         
         destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
+        destinationVC.room = selectedRoom
         
         transition = RoomCardSegue()
         transition.duration = 0.4

@@ -14,6 +14,12 @@ class RoomViewController: ViewController, MKMapViewDelegate {
     var cardInitialCenter: CGPoint!
     var transformation: CGAffineTransform!
     
+    var room: Room!
+    
+    @IBOutlet weak var roomNameLabel: UILabel!
+    @IBOutlet weak var roomDescriptionLabel: UILabel!
+    @IBOutlet weak var roomLocationLabel: UILabel!
+    
     @IBOutlet var roomMetaView: UIVisualEffectView!
 
     @IBOutlet var cardMapView: MKMapView!
@@ -51,6 +57,10 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         
         var mapRegion = MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
         cardMapView.setRegion(mapRegion, animated: false)
+        
+        roomNameLabel.text = room.name
+        roomDescriptionLabel.text = room.floor
+        roomLocationLabel.text = Array(room.landmarks).combine(",")
     }
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -77,9 +77,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="XQU-cY-10z" secondAttribute="trailing" constant="10" id="wgc-u7-Xks"/>
                                                 <constraint firstItem="XQU-cY-10z" firstAttribute="top" secondItem="qmz-Om-Xts" secondAttribute="topMargin" constant="20" id="xfb-iE-uGR"/>
                                             </constraints>
-                                            <connections>
-                                                <outletCollection property="gestureRecognizers" destination="Ld3-o5-xe7" appends="YES" id="JOh-pO-RyL"/>
-                                            </connections>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="descriptionLabel" destination="XQU-cY-10z" id="TCA-NY-vvh"/>
@@ -127,17 +124,13 @@
                         <outlet property="nextMeetingHintView" destination="PlR-Kr-4jq" id="gjV-8o-EGl"/>
                         <outlet property="resultTableView" destination="XPC-BN-1B4" id="yDu-GE-dtj"/>
                         <outlet property="searchTextField" destination="wBE-FM-BwP" id="8Q9-TT-MzL"/>
+                        <segue destination="BVd-Wy-eQJ" kind="modal" identifier="resultCellToCardSegue" id="2Qb-4i-Ffs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="pOb-fW-UPc" userLabel="Meeting Tap Gesture Recognizer">
                     <connections>
                         <segue destination="BVd-Wy-eQJ" kind="modal" id="YxQ-Rc-iDW"/>
-                    </connections>
-                </tapGestureRecognizer>
-                <tapGestureRecognizer id="Ld3-o5-xe7" userLabel="Result Tap Gesture Recognizer">
-                    <connections>
-                        <segue destination="BVd-Wy-eQJ" kind="modal" id="28j-Rq-XIW"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -181,7 +174,7 @@
                                             <rect key="frame" x="20" y="80" width="280" height="1"/>
                                             <color key="backgroundColor" red="0.18963778018951416" green="0.25754275918006897" blue="0.3324001133441925" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="In Biggie, behind the snacks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbI-pM-4rC">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="In Biggie, behind the snacks" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbI-pM-4rC">
                                             <rect key="frame" x="20" y="86" width="280" height="32"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                                             <color key="textColor" red="0.18963778018951416" green="0.25754275918006897" blue="0.3324001133441925" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
@@ -200,7 +193,10 @@
                     </view>
                     <connections>
                         <outlet property="cardMapView" destination="4xY-4B-G4f" id="GBq-uf-Tbs"/>
+                        <outlet property="roomDescriptionLabel" destination="1NU-HH-APV" id="dhk-OB-IyP"/>
+                        <outlet property="roomLocationLabel" destination="zbI-pM-4rC" id="ayv-b2-MLN"/>
                         <outlet property="roomMetaView" destination="vr6-2G-3tP" id="8fK-hb-bf4"/>
+                        <outlet property="roomNameLabel" destination="dUQ-eL-Goz" id="0si-if-Y0W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZw-mD-BzG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -219,7 +215,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="YxQ-Rc-iDW"/>
+        <segue reference="2Qb-4i-Ffs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.24478796124458313" green="0.61356121301651001" blue="0.91679513454437256" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

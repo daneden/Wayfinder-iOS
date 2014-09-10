@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7177ABBB19BE40C00009F635 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7177ABBA19BE40C00009F635 /* RoomTableViewCell.swift */; };
+		71797DEE19C0F1EB004C41F2 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71797DED19C0F1EB004C41F2 /* ArrayExtension.swift */; };
 		7181437C19BE54DB00931FD0 /* rooms.json in Resources */ = {isa = PBXBuildFile; fileRef = 7181437B19BE54DB00931FD0 /* rooms.json */; };
 		D96F82A119BD50C000C65194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F82A019BD50C000C65194 /* AppDelegate.swift */; };
 		D96F82A319BD50C000C65194 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96F82A219BD50C000C65194 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		7177ABBA19BE40C00009F635 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		71797DED19C0F1EB004C41F2 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		7181437B19BE54DB00931FD0 /* rooms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rooms.json; sourceTree = "<group>"; };
 		D96F829B19BD50C000C65194 /* Wayfinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wayfinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D96F829F19BD50C000C65194 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				D96F82BD19BD50E900C65194 /* View Controllers */,
 				D96F82A019BD50C000C65194 /* AppDelegate.swift */,
 				D96F82A219BD50C000C65194 /* ViewController.swift */,
+				71797DED19C0F1EB004C41F2 /* ArrayExtension.swift */,
 				D96F82A419BD50C000C65194 /* Main.storyboard */,
 				D96F82A719BD50C000C65194 /* Images.xcassets */,
 				D96F829E19BD50C000C65194 /* Supporting Files */,
@@ -262,6 +265,7 @@
 				7177ABBB19BE40C00009F635 /* RoomTableViewCell.swift in Sources */,
 				D96F82BF19BD510200C65194 /* SearchViewController.swift in Sources */,
 				D9E394A319C034C6005912E4 /* Room.swift in Sources */,
+				71797DEE19C0F1EB004C41F2 /* ArrayExtension.swift in Sources */,
 				D96F82A319BD50C000C65194 /* ViewController.swift in Sources */,
 				D96F82A119BD50C000C65194 /* AppDelegate.swift in Sources */,
 				D99A7FCA19BD6B86008EEA4B /* RoomCardSegue.swift in Sources */,
