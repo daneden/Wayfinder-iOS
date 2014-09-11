@@ -36,6 +36,8 @@ class RoomCardSegue: NSObject, UIViewControllerTransitioningDelegate, UIViewCont
             containerView.addSubview(toViewController.view)
             toViewController.view.alpha = 0
             toViewController.view.transform = CGAffineTransformMakeScale(0.2, 0.2)
+            toViewController.view.frame.size.height = toViewController.view.frame.height * 0.75
+            toViewController.view.center = fromViewController.view.center
             
             UIView.animateWithDuration(duration,
                 delay: 0,

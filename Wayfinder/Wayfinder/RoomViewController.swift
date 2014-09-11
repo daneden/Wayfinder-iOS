@@ -40,7 +40,6 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         view.layer.borderColor = UIColor(hue: 0, saturation: 0, brightness: 1, alpha: 0.2).CGColor
         view.layer.borderWidth = 1
         
-        
         cardInitialCenter = view.center
         view.transform = CGAffineTransformMakeScale(0.9, 0.9)
         transformation = view.transform
@@ -54,13 +53,17 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         annotation.title = "Dropbox HQ"
         annotation.subtitle = "San Francisco, CA"
         cardMapView.addAnnotation(annotation)
+        cardMapView.selectAnnotation(annotation, animated: true)
         
         var mapRegion = MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
+        mapRegion.center.latitude += CLLocationDegrees(roomMetaView.frame.height / 400000)
         cardMapView.setRegion(mapRegion, animated: false)
         
         roomNameLabel.text = room.name
         roomDescriptionLabel.text = room.floor
         roomLocationLabel.text = Array(room.landmarks).combine(",")
+        
+        
     }
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
@@ -82,9 +85,7 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         
         if gesture.state == UIGestureRecognizerState.Began {
             
-            if location.y > cardInitialCenter.y {
-                rotation = -rotation
-            }
+            
             
         } else if gesture.state == UIGestureRecognizerState.Changed {
             
@@ -95,14 +96,14 @@ class RoomViewController: ViewController, MKMapViewDelegate {
             
         } else if gesture.state == UIGestureRecognizerState.Ended {
             
-            if translation.x > 50 {
+            if translation.x > 60 {
                 UIView.animateWithDuration(0.2, animations: {
                     self.view.center.x += self.view.frame.width
                     }, completion: { (finished: Bool) -> Void in
                         self.dismissViewControllerAnimated(true, completion: nil)
                     })
                 
-            } else if translation.x < -50 {
+            } else if translation.x < -60 {
                 UIView.animateWithDuration(0.2, animations: {
                     self.view.center.x -= self.view.frame.width
                     }, completion: { (finished: Bool) -> Void in
@@ -112,8 +113,8 @@ class RoomViewController: ViewController, MKMapViewDelegate {
             } else {
                 UIView.animateWithDuration(0.4,
                     delay: 0,
-                    usingSpringWithDamping: 0.6,
-                    initialSpringVelocity: 4,
+                    usingSpringWithDamping: 0.4,
+                    initialSpringVelocity: 15,
                     options: nil,
                     animations: {
                     self.view.center = self.cardInitialCenter

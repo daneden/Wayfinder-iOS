@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -117,7 +117,7 @@
                                             <rect key="frame" x="10" y="40" width="300" height="36"/>
                                             <color key="textColor" red="0.23921570181846619" green="0.27450981736183167" blue="0.30196079611778259" alpha="1" colorSpace="deviceRGB"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="44"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
                                                 <action selector="onSearchEdit:" destination="vXZ-lx-hvc" eventType="editingChanged" id="tpu-3z-LLi"/>
                                                 <action selector="onSearchEdit:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="vUe-xb-Sjq"/>
@@ -168,45 +168,72 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xY-4B-G4f">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xY-4B-G4f">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </mapView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vr6-2G-3tP" userLabel="Room Meta View">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="126" translatesAutoresizingMaskIntoConstraints="NO" id="vr6-2G-3tP" userLabel="Room Meta View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="HNj-vY-4wZ">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="126" id="HNj-vY-4wZ">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Doorman Drew" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUQ-eL-Goz">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Doorman Drew" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUQ-eL-Goz">
                                             <rect key="frame" x="20" y="20" width="280" height="24"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.18963778018951416" green="0.25754275918006897" blue="0.3324001133441925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                             <size key="shadowOffset" width="0.0" height="1"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10 People • 4th Floor Berry St" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NU-HH-APV">
-                                            <rect key="frame" x="20" y="48" width="280" height="18"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="10 People • 4th Floor Berry St" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NU-HH-APV">
+                                            <rect key="frame" x="20" y="49" width="280" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.18963778018951416" green="0.25754275918006897" blue="0.3324001133441925" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="azz-pc-6Yu" userLabel="Rule View">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="azz-pc-6Yu" userLabel="Rule View">
                                             <rect key="frame" x="20" y="80" width="280" height="1"/>
                                             <color key="backgroundColor" red="0.18963778018951416" green="0.25754275918006897" blue="0.3324001133441925" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="ffx-xE-LX5"/>
+                                            </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="In Biggie, behind the snacks" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbI-pM-4rC">
-                                            <rect key="frame" x="20" y="86" width="280" height="32"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="18" text="In Biggie, behind the snacks" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbI-pM-4rC">
+                                            <rect key="frame" x="20" y="93" width="280" height="18"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.18963778018951416" green="0.25754275918006897" blue="0.3324001133441925" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dUQ-eL-Goz" firstAttribute="top" secondItem="HNj-vY-4wZ" secondAttribute="top" constant="20" id="174-pM-2KR"/>
+                                        <constraint firstAttribute="trailing" secondItem="dUQ-eL-Goz" secondAttribute="trailing" constant="20" id="1Ku-rl-7z3"/>
+                                        <constraint firstItem="azz-pc-6Yu" firstAttribute="leading" secondItem="HNj-vY-4wZ" secondAttribute="leading" constant="20" id="3bi-WH-6BP"/>
+                                        <constraint firstItem="zbI-pM-4rC" firstAttribute="leading" secondItem="HNj-vY-4wZ" secondAttribute="leading" constant="20" id="3iW-DE-OL7"/>
+                                        <constraint firstAttribute="bottom" secondItem="zbI-pM-4rC" secondAttribute="bottom" constant="15" id="6MS-8p-mbe"/>
+                                        <constraint firstAttribute="trailing" secondItem="azz-pc-6Yu" secondAttribute="trailing" constant="20" id="Iqx-08-cCK"/>
+                                        <constraint firstItem="azz-pc-6Yu" firstAttribute="top" secondItem="1NU-HH-APV" secondAttribute="bottom" constant="13" id="Maf-eB-H5H"/>
+                                        <constraint firstItem="1NU-HH-APV" firstAttribute="top" secondItem="dUQ-eL-Goz" secondAttribute="bottom" constant="5" id="aqy-bz-k4V"/>
+                                        <constraint firstAttribute="trailing" secondItem="1NU-HH-APV" secondAttribute="trailing" constant="20" id="bAA-uM-Kyn"/>
+                                        <constraint firstAttribute="trailing" secondItem="zbI-pM-4rC" secondAttribute="trailing" constant="20" id="s73-xw-UqF"/>
+                                        <constraint firstItem="1NU-HH-APV" firstAttribute="leading" secondItem="HNj-vY-4wZ" secondAttribute="leading" constant="20" id="uRr-Yq-vxi"/>
+                                        <constraint firstItem="dUQ-eL-Goz" firstAttribute="leading" secondItem="HNj-vY-4wZ" secondAttribute="leading" constant="20" id="vwi-GD-ZAI"/>
+                                        <constraint firstItem="zbI-pM-4rC" firstAttribute="top" secondItem="azz-pc-6Yu" secondAttribute="bottom" constant="12" id="xgo-UL-jEG"/>
+                                    </constraints>
                                 </view>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="vr6-2G-3tP" firstAttribute="top" secondItem="yA7-TL-NqX" secondAttribute="top" id="0fw-0z-l2v"/>
+                            <constraint firstItem="4xY-4B-G4f" firstAttribute="leading" secondItem="yA7-TL-NqX" secondAttribute="leading" id="1No-Kq-uWo"/>
+                            <constraint firstAttribute="trailing" secondItem="4xY-4B-G4f" secondAttribute="trailing" id="7BW-qk-tiI"/>
+                            <constraint firstItem="TH8-Ca-WRK" firstAttribute="top" secondItem="4xY-4B-G4f" secondAttribute="bottom" id="SzC-RK-g5Y"/>
+                            <constraint firstItem="4xY-4B-G4f" firstAttribute="top" secondItem="yA7-TL-NqX" secondAttribute="top" id="ZA4-q0-Pkl"/>
+                            <constraint firstItem="vr6-2G-3tP" firstAttribute="leading" secondItem="yA7-TL-NqX" secondAttribute="leading" id="hUa-mp-YUT"/>
+                            <constraint firstAttribute="trailing" secondItem="vr6-2G-3tP" secondAttribute="trailing" id="ngF-1G-W5n"/>
+                        </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="kly-Io-BMc" appends="YES" id="Cf3-f4-1Lp"/>
                         </connections>
@@ -226,7 +253,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="657.60000000000002" y="369.19999999999999"/>
+            <point key="canvasLocation" x="657" y="369"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
