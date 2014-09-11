@@ -105,16 +105,16 @@
 		D96F829D19BD50C000C65194 /* Wayfinder */ = {
 			isa = PBXGroup;
 			children = (
+				D9B318C919C10013005421F2 /* Class Extensions */,
 				7177ABB919BE40A90009F635 /* Table View Cells */,
 				D96F82C619BD6B4800C65194 /* Segues */,
 				D96F82BD19BD50E900C65194 /* View Controllers */,
+				D9E394A219C034C6005912E4 /* Room.swift */,
 				D96F82A019BD50C000C65194 /* AppDelegate.swift */,
 				D96F82A219BD50C000C65194 /* ViewController.swift */,
-				71797DED19C0F1EB004C41F2 /* ArrayExtension.swift */,
 				D96F82A419BD50C000C65194 /* Main.storyboard */,
 				D96F82A719BD50C000C65194 /* Images.xcassets */,
 				D96F829E19BD50C000C65194 /* Supporting Files */,
-				D9E394A219C034C6005912E4 /* Room.swift */,
 			);
 			path = Wayfinder;
 			sourceTree = "<group>";
@@ -160,6 +160,14 @@
 				D99A7FC919BD6B86008EEA4B /* RoomCardSegue.swift */,
 			);
 			name = Segues;
+			sourceTree = "<group>";
+		};
+		D9B318C919C10013005421F2 /* Class Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				71797DED19C0F1EB004C41F2 /* ArrayExtension.swift */,
+			);
+			name = "Class Extensions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

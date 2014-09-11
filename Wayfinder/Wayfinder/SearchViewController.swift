@@ -11,6 +11,7 @@ import Foundation
 
 class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet var searchContainerView: UIVisualEffectView!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var nextMeetingHintView: UIVisualEffectView!
     @IBOutlet var resultTableView: UITableView!
@@ -18,7 +19,8 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     var bytes: NSMutableData?
     
     var tableData = []
-    var rooms: NSMutableArray = []
+    var rooms: Array<Room> = []
+    var filteredRooms: Array<Room> = []
     var selectedRoom: Room!
     
     var transition: RoomCardSegue!
@@ -50,33 +52,51 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
             
             var room = Room(json: roomDict)
             
-            rooms.addObject(room)
+            rooms.append(room)
             
         }
         
+        resultTableView.contentInset.top = searchContainerView.frame.height
+        resultTableView.scrollIndicatorInsets.top = searchContainerView.frame.height
+        
+        resultTableView.contentInset.bottom = nextMeetingHintView.frame.height
+        resultTableView.scrollIndicatorInsets.bottom = nextMeetingHintView.frame.height
         
         
         self.resultTableView.registerClass(RoomTableViewCell.self, forCellReuseIdentifier: "roomCell")
+        self.resultTableView.rowHeight = UITableViewAutomaticDimension;
+        self.resultTableView.estimatedRowHeight = 74.0
+        
+        // Sort the array by name
+        rooms.sort({ $0.name.uppercaseString < $1.name.uppercaseString })
+        
+        // Load the table data
         resultTableView.reloadData()
 
     }
     
-    func scrollViewDidScroll(scrollView: UIScrollView) {
+    func filterContentForSearchText(searchText: String) {
+        // Filter the array using the filter method
+        self.filteredRooms = self.rooms.filter({( room: Room) -> Bool in
+            let stringAsArray = room.name.componentsSeparatedByString(" ")
+            let stringMatch = room.name.rangeOfString("\\b" + searchText, options: NSStringCompareOptions.CaseInsensitiveSearch | NSStringCompareOptions.RegularExpressionSearch)
+            return (stringMatch != nil)
+        })
+    }
+    
+    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         self.view.endEditing(true)
     }
 
     
     override func viewWillAppear(animated: Bool) {
-        searchTextField.center.y = CGFloat(self.view.center.y - CGFloat(self.keyboardSize.height/2.0))
         resultTableView.alpha = 0
     }
     
     func keyboardWillShow(notification: NSNotification!) {
         var userInfo = notification.userInfo!
-        keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue().size
         
         if searchTextField.text == "" {
-            searchTextField.center.y = CGFloat(self.view.center.y - CGFloat(self.keyboardSize.height/2.0))
             resultTableView.alpha = 0
         } else {
             self.searchTextField.center.y = 60
@@ -94,37 +114,44 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     @IBAction func onSearchEdit(sender: AnyObject) {
         if searchTextField.text == "" {
             
-            self.resultTableView.alpha = 0
-                    
-                    
-            UIView.animateWithDuration(0.2,
-                delay: 0,
-                options: nil,
-                animations: {
-                    self.searchTextField.center.y = CGFloat(self.view.center.y - CGFloat(self.keyboardSize.height/2.0))
-            }, completion: nil)
+            UIView.animateWithDuration(0.2, animations: {
+                self.resultTableView.alpha = 0
+            })
             
         } else {
             
+            self.filterContentForSearchText(searchTextField.text)
+            self.resultTableView.reloadData()
+            
             UIView.animateWithDuration(0.2, animations: {
-                self.searchTextField.center.y = 60
-                
-                }, completion: { (finished: Bool) -> Void in
-                    UIView.animateWithDuration(0.2, animations: {
-                        self.resultTableView.alpha = 1
-                    })
+                self.resultTableView.alpha = 1
             })
         }
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rooms.count
+        if searchTextField.text != "" {
+            return self.filteredRooms.count
+        } else {
+            return rooms.count
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.resultTableView.dequeueReusableCellWithIdentifier("TheRoomCell") as RoomTableViewCell
         var i: NSNumber = indexPath.row
-        var theRoom: Room = rooms[i] as Room
+        var theRoom: Room
+        
+        if searchTextField.text != "" {
+            theRoom = filteredRooms[i] as Room
+        } else {
+            theRoom = rooms[i] as Room
+        }
         
         cell.titleLabel.text = theRoom.name
         cell.descriptionLabel.text = Array(theRoom.landmarks).combine(",")

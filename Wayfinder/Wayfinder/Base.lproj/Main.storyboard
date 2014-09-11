@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A343f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -17,18 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Looking for your room?" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="wBE-FM-BwP">
-                                <rect key="frame" x="10" y="42" width="300" height="36"/>
-                                <color key="textColor" red="0.23921570181846619" green="0.27450981736183167" blue="0.30196079611778259" alpha="1" colorSpace="deviceRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="44"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                <connections>
-                                    <action selector="onSearchEdit:" destination="vXZ-lx-hvc" eventType="editingChanged" id="tpu-3z-LLi"/>
-                                    <action selector="onSearchEdit:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="vUe-xb-Sjq"/>
-                                </connections>
-                            </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XPC-BN-1B4">
-                                <rect key="frame" x="0.0" y="87" width="320" height="426"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
                                 <prototypes>
@@ -91,7 +81,7 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="axb-qS-LgD"/>
                                 </connections>
                             </tableView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PlR-Kr-4jq">
+                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PlR-Kr-4jq" userLabel="Meeting Hint View">
                                 <rect key="frame" x="0.0" y="513" width="320" height="55"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="d3M-87-5hh">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
@@ -117,12 +107,34 @@
                                 </view>
                                 <blurEffect style="dark"/>
                             </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nm4-3U-kyt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="59m-Vy-GQS">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Looking for your room?" minimumFontSize="24" translatesAutoresizingMaskIntoConstraints="NO" id="wBE-FM-BwP">
+                                            <rect key="frame" x="10" y="40" width="300" height="36"/>
+                                            <color key="textColor" red="0.23921570181846619" green="0.27450981736183167" blue="0.30196079611778259" alpha="1" colorSpace="deviceRGB"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="44"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                            <connections>
+                                                <action selector="onSearchEdit:" destination="vXZ-lx-hvc" eventType="editingChanged" id="tpu-3z-LLi"/>
+                                                <action selector="onSearchEdit:" destination="vXZ-lx-hvc" eventType="editingDidEnd" id="vUe-xb-Sjq"/>
+                                            </connections>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="nextMeetingHintView" destination="PlR-Kr-4jq" id="gjV-8o-EGl"/>
                         <outlet property="resultTableView" destination="XPC-BN-1B4" id="yDu-GE-dtj"/>
+                        <outlet property="searchContainerView" destination="nm4-3U-kyt" id="7RG-AI-bCQ"/>
+                        <outlet property="searchDisplayController" destination="W7Y-id-8qD" id="vAt-nm-b5V"/>
                         <outlet property="searchTextField" destination="wBE-FM-BwP" id="8Q9-TT-MzL"/>
                         <segue destination="BVd-Wy-eQJ" kind="modal" identifier="resultCellToCardSegue" id="2Qb-4i-Ffs"/>
                     </connections>
@@ -133,6 +145,14 @@
                         <segue destination="BVd-Wy-eQJ" kind="modal" id="YxQ-Rc-iDW"/>
                     </connections>
                 </tapGestureRecognizer>
+                <searchDisplayController id="W7Y-id-8qD">
+                    <connections>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="VfP-gG-s5f"/>
+                        <outlet property="searchContentsController" destination="vXZ-lx-hvc" id="dNg-sU-iPq"/>
+                        <outlet property="searchResultsDataSource" destination="vXZ-lx-hvc" id="ANm-b6-ks0"/>
+                        <outlet property="searchResultsDelegate" destination="vXZ-lx-hvc" id="6Y3-3C-FOn"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="236" y="369"/>
         </scene>
