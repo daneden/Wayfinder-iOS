@@ -42,9 +42,9 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         view.layer.cornerRadius = 5
         view.clipsToBounds = true
         
-        var roomData = NSData(contentsOfURL: NSURL(string: "https://wayfinder.daneden.me/rooms.json"))
+        var roomData = NSData(contentsOfURL: NSURL(string: "https://wayfinder.daneden.me/rooms.json")!)
         
-        var roomJSON = NSJSONSerialization.JSONObjectWithData(roomData, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSMutableArray
+        var roomJSON = NSJSONSerialization.JSONObjectWithData(roomData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSMutableArray
         
         
         for (object) in roomJSON {
@@ -148,9 +148,9 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         var theRoom: Room
         
         if searchTextField.text != "" {
-            theRoom = filteredRooms[i] as Room
+            theRoom = filteredRooms[Int(i)] as Room
         } else {
-            theRoom = rooms[i] as Room
+            theRoom = rooms[Int(i)] as Room
         }
         
         cell.titleLabel.text = theRoom.name
