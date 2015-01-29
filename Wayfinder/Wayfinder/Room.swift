@@ -18,14 +18,14 @@ class Room: NSObject {
         name = json["name"] as NSString
         landmarks = json["landmarks"] as NSArray
 //        size = json["size"] as NSString
-        floor = json["floor"] as NSString
+        floor = json["key"] as NSString
         
         switch floor {
-        case "B4":
+        case "b4":
             floor = "Berry St building, 4th floor"
-        case "B5":
+        case "b5":
             floor = "Berry St building, 5th floor"
-        case "W6":
+        case "w6":
             floor = "Wharfside building, 6th floor"
         default:
             floor = "Dropbox HQ"
