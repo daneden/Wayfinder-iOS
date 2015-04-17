@@ -44,11 +44,11 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         
         var roomData = NSData(contentsOfURL: NSURL(string: "https://wayfinder.daneden.me/rooms.json")!)
         
-        var roomJSON = NSJSONSerialization.JSONObjectWithData(roomData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSMutableArray
+        var roomJSON = NSJSONSerialization.JSONObjectWithData(roomData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSMutableArray
         
         
         for (object) in roomJSON {
-            var roomDict = object as Dictionary<String, AnyObject>
+            var roomDict = object as! Dictionary<String, AnyObject>
             
             var room = Room(json: roomDict)
             
@@ -143,7 +143,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = self.resultTableView.dequeueReusableCellWithIdentifier("TheRoomCell") as RoomTableViewCell
+        var cell = self.resultTableView.dequeueReusableCellWithIdentifier("TheRoomCell") as! RoomTableViewCell
         var i: NSNumber = indexPath.row
         var theRoom: Room
         
@@ -162,7 +162,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     }
     
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        var cell = tableView.cellForRowAtIndexPath(indexPath) as RoomTableViewCell
+        var cell = tableView.cellForRowAtIndexPath(indexPath) as! RoomTableViewCell
         
         selectedRoom = cell.roomObject
         
@@ -181,7 +181,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var destinationVC = segue.destinationViewController as RoomViewController
+        var destinationVC = segue.destinationViewController as! RoomViewController
         
         destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
         destinationVC.room = selectedRoom

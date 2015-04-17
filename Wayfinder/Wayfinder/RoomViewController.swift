@@ -49,7 +49,7 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         
         var officeLocation = CLLocationCoordinate2DMake(37.776378, -122.391897)
         var annotation = MKPointAnnotation()
-        annotation.setCoordinate(officeLocation)
+        annotation.coordinate = officeLocation
         annotation.title = "Dropbox HQ"
         annotation.subtitle = "San Francisco, CA"
         cardMapView.addAnnotation(annotation)

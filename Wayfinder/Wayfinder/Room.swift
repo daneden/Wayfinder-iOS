@@ -15,20 +15,9 @@ class Room: NSObject {
     var floor: String!
     
     init(json: Dictionary<String, AnyObject>) {
-        name = json["name"] as NSString
-        landmarks = json["landmarks"] as NSArray
-//        size = json["size"] as NSString
-        floor = json["key"] as NSString
+        name = json["name"] as! NSString as String
+        landmarks = json["landmarks"] as! NSArray
+        floor = json["floor"] as! NSString as String
         
-        switch floor {
-        case "b4":
-            floor = "Berry St building, 4th floor"
-        case "b5":
-            floor = "Berry St building, 5th floor"
-        case "w6":
-            floor = "Wharfside building, 6th floor"
-        default:
-            floor = "Dropbox HQ"
-        }
     }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14E7f" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="9lA-Rj-AUZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XPC-BN-1B4">
@@ -81,35 +81,9 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="axb-qS-LgD"/>
                                 </connections>
                             </tableView>
-                            <visualEffectView hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PlR-Kr-4jq" userLabel="Meeting Hint View">
-                                <rect key="frame" x="0.0" y="513" width="320" height="55"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="d3M-87-5hh">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="In Biggie, behind the snacks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6b0-wr-Gl2">
-                                            <rect key="frame" x="10" y="25" width="300" height="22"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                            <color key="textColor" red="0.9647059440612793" green="0.97254908084869385" blue="0.9803922176361084" alpha="0.5" colorSpace="deviceRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3pm meeting: All Seasons" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVF-oB-aTJ">
-                                            <rect key="frame" x="10" y="6" width="300" height="22"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
-                                            <color key="textColor" red="0.9647059440612793" green="0.97254908084869385" blue="0.9803922176361084" alpha="1" colorSpace="deviceRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <gestureRecognizers/>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="pOb-fW-UPc" appends="YES" id="wco-YE-QS3"/>
-                                    </connections>
-                                </view>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nm4-3U-kyt">
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nm4-3U-kyt">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="59m-Vy-GQS">
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="59m-Vy-GQS">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
@@ -125,24 +99,32 @@
                                         </textField>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="88" id="eKy-Yw-VRo"/>
+                                </constraints>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="nm4-3U-kyt" secondAttribute="trailing" id="6CJ-A0-QWi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nm4-3U-kyt" secondAttribute="trailing" constant="-16" id="cbP-V4-DUH"/>
+                            <constraint firstItem="nm4-3U-kyt" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="iHn-CH-UxT"/>
+                            <constraint firstItem="nm4-3U-kyt" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="lNm-al-NUk"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="nextMeetingHintView" destination="PlR-Kr-4jq" id="gjV-8o-EGl"/>
                         <outlet property="resultTableView" destination="XPC-BN-1B4" id="yDu-GE-dtj"/>
                         <outlet property="searchContainerView" destination="nm4-3U-kyt" id="7RG-AI-bCQ"/>
                         <outlet property="searchDisplayController" destination="W7Y-id-8qD" id="vAt-nm-b5V"/>
                         <outlet property="searchTextField" destination="wBE-FM-BwP" id="8Q9-TT-MzL"/>
-                        <segue destination="BVd-Wy-eQJ" kind="modal" identifier="resultCellToCardSegue" id="2Qb-4i-Ffs"/>
+                        <segue destination="BVd-Wy-eQJ" kind="presentation" identifier="resultCellToCardSegue" id="2Qb-4i-Ffs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="pOb-fW-UPc" userLabel="Meeting Tap Gesture Recognizer">
                     <connections>
-                        <segue destination="BVd-Wy-eQJ" kind="modal" id="YxQ-Rc-iDW"/>
+                        <segue destination="BVd-Wy-eQJ" kind="presentation" id="YxQ-Rc-iDW"/>
                     </connections>
                 </tapGestureRecognizer>
                 <searchDisplayController id="W7Y-id-8qD">
@@ -154,7 +136,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="236" y="369"/>
+            <point key="canvasLocation" x="442.5" y="389.78873239436615"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="Gbi-Gc-6qq">
@@ -165,40 +147,40 @@
                         <viewControllerLayoutGuide type="bottom" id="TH8-Ca-WRK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yA7-TL-NqX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" rotateEnabled="NO" pitchEnabled="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xY-4B-G4f">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                             <visualEffectView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="126" translatesAutoresizingMaskIntoConstraints="NO" id="vr6-2G-3tP" userLabel="Room Meta View">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="126"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" verticalHuggingPriority="1000" verticalCompressionResistancePriority="250" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="126" id="HNj-vY-4wZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="126"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="126"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="Doorman Drew" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dUQ-eL-Goz">
-                                            <rect key="frame" x="20" y="20" width="280" height="24"/>
+                                            <rect key="frame" x="20" y="20" width="560" height="24"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                             <color key="textColor" red="0.18963778018951416" green="0.25754275918006897" blue="0.3324001133441925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                             <size key="shadowOffset" width="0.0" height="1"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" text="10 People • 4th Floor Berry St" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1NU-HH-APV">
-                                            <rect key="frame" x="20" y="49" width="280" height="18"/>
+                                            <rect key="frame" x="20" y="49" width="560" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.18963778018951416" green="0.25754275918006897" blue="0.3324001133441925" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="azz-pc-6Yu" userLabel="Rule View">
-                                            <rect key="frame" x="20" y="80" width="280" height="1"/>
+                                            <rect key="frame" x="20" y="80" width="560" height="1"/>
                                             <color key="backgroundColor" red="0.18963778018951416" green="0.25754275918006897" blue="0.3324001133441925" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="ffx-xE-LX5"/>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="18" text="In Biggie, behind the snacks" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbI-pM-4rC">
-                                            <rect key="frame" x="20" y="93" width="280" height="18"/>
+                                            <rect key="frame" x="20" y="93" width="560" height="18"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                             <color key="textColor" red="0.18963778018951416" green="0.25754275918006897" blue="0.3324001133441925" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -253,16 +235,11 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="657" y="369"/>
+            <point key="canvasLocation" x="1231.875" y="389.78873239436615"/>
         </scene>
     </scenes>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="2Qb-4i-Ffs"/>
+        <segue reference="YxQ-Rc-iDW"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.24478796124458313" green="0.61356121301651001" blue="0.91679513454437256" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
