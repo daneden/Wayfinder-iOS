@@ -26,11 +26,11 @@ class RoomViewController: ViewController, MKMapViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        // Use inverted status bar when this view is present
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
         
+        // Cosmetic changes
         view.layer.cornerRadius = 6
         view.layer.shadowColor = UIColor.blackColor().CGColor
         view.layer.shadowOpacity = 0.9
@@ -40,13 +40,11 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         view.layer.borderColor = UIColor(hue: 0, saturation: 0, brightness: 1, alpha: 0.2).CGColor
         view.layer.borderWidth = 1
         
-        cardInitialCenter = view.center
-        view.transform = CGAffineTransformMakeScale(0.9, 0.9)
-        transformation = view.transform
-        
+        // Show user location on the map
         cardMapView.showsUserLocation = true
         cardMapView.setUserTrackingMode(MKUserTrackingMode.None, animated: false)
         
+        // Set the location for the MapView
         var officeLocation = CLLocationCoordinate2DMake(37.776378, -122.391897)
         var annotation = MKPointAnnotation()
         annotation.coordinate = officeLocation
@@ -63,13 +61,18 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         roomDescriptionLabel.text = room.floor
         roomLocationLabel.text = Array(room.landmarks).combine(",")
         
+        // Use a slightly taller frame since we're scaling it down
+        view.frame = CGRectMake(0, 0, view.frame.width, view.frame.height * 1.2)
+        var offset = (view.frame.height - (view.frame.height / 1.2)) / 2
         
-    }
-    
-    func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
-        // This zooms the map into the user location, but it makes more sense to center in on the room
-//        var mapRegion = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
-//        mapView.setRegion(mapRegion, animated: false)
+        // Scale down the view
+        self.view.transform = CGAffineTransformMakeScale(0.9, 0.9)
+        self.view.transform = CGAffineTransformConcat(view.transform, CGAffineTransformMakeTranslation(0, -offset))
+        
+        // Initialise view position for later reference
+        transformation = self.view.transform
+        cardInitialCenter = self.view.center
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,18 +82,19 @@ class RoomViewController: ViewController, MKMapViewDelegate {
     
     @IBAction func onCardPan(gesture: UIPanGestureRecognizer) {
         var translation = gesture.translationInView(view)
-        var location = gesture.locationInView(view)
-        
         var rotation = translation.x / 10 * CGFloat(M_PI / 180)
         
         if gesture.state == UIGestureRecognizerState.Began {
-            
             
             
         } else if gesture.state == UIGestureRecognizerState.Changed {
             
             self.view.center.y = cardInitialCenter.y + translation.y
             self.view.center.x = cardInitialCenter.x + translation.x
+            
+            // Fade the card when it's swiped along X to indicate where it needs to travel
+            var alpha = (fabs(translation.x) / 300)
+            self.view.alpha = 1 - alpha
             
             self.view.transform = CGAffineTransformRotate(transformation, rotation)
             
@@ -113,12 +117,13 @@ class RoomViewController: ViewController, MKMapViewDelegate {
             } else {
                 UIView.animateWithDuration(0.4,
                     delay: 0,
-                    usingSpringWithDamping: 0.4,
-                    initialSpringVelocity: 15,
+                    usingSpringWithDamping: 0.5,
+                    initialSpringVelocity: 12,
                     options: nil,
                     animations: {
                     self.view.center = self.cardInitialCenter
                     self.view.transform = self.transformation
+                    self.view.alpha = 1
                 }, completion: nil)
             }
         }
