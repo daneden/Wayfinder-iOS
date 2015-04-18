@@ -13,7 +13,6 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
 
     @IBOutlet var searchContainerView: UIVisualEffectView!
     @IBOutlet weak var searchTextField: UITextField!
-    @IBOutlet weak var nextMeetingHintView: UIVisualEffectView!
     @IBOutlet var resultTableView: UITableView!
     
     var bytes: NSMutableData?
@@ -25,28 +24,25 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     
     var transition: RoomCardSegue!
     
-    var keyboardSize: CGSize! = CGSize(width: 320.0, height: 253.0)
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
-        
+        // Autofocus the text field on load
         searchTextField.delegate = self
         searchTextField.becomeFirstResponder()
         
+        // Let's make things look a little nicer
         view.layer.cornerRadius = 5
         view.clipsToBounds = true
         
+        // Load the JSON for the rooms
         var roomData = NSData(contentsOfURL: NSURL(string: "https://wayfinder.daneden.me/rooms.json")!)
-        
         var roomJSON = NSJSONSerialization.JSONObjectWithData(roomData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSMutableArray
         
-        
+        // Put the rooms in a more manageable object
         for (object) in roomJSON {
             var roomDict = object as! Dictionary<String, AnyObject>
             
@@ -56,13 +52,11 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
             
         }
         
+        // Set the scrollable area based on the height of the search input
         resultTableView.contentInset.top = searchContainerView.frame.height
         resultTableView.scrollIndicatorInsets.top = searchContainerView.frame.height
         
-        resultTableView.contentInset.bottom = nextMeetingHintView.frame.height
-        resultTableView.scrollIndicatorInsets.bottom = nextMeetingHintView.frame.height
-        
-        
+        // Prep our results TableView
         self.resultTableView.registerClass(RoomTableViewCell.self, forCellReuseIdentifier: "roomCell")
         self.resultTableView.rowHeight = UITableViewAutomaticDimension;
         self.resultTableView.estimatedRowHeight = 74.0
@@ -84,30 +78,24 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         })
     }
     
+    // Close the keyboard when we scroll the results
     func scrollViewWillBeginDragging(scrollView: UIScrollView) {
         self.view.endEditing(true)
     }
 
-    
+    // We want to hide the resultsTableView when we load the view
     override func viewWillAppear(animated: Bool) {
         resultTableView.alpha = 0
     }
     
+    // Hide empty resultsTableView
     func keyboardWillShow(notification: NSNotification!) {
-        var userInfo = notification.userInfo!
-        
         if searchTextField.text == "" {
             resultTableView.alpha = 0
         } else {
             self.searchTextField.center.y = 60
             resultTableView.alpha = 1
         }
-        
-        nextMeetingHintView.frame.origin.y = view.frame.height - (nextMeetingHintView.frame.height + keyboardSize.height)
-    }
-    
-    func keyboardWillHide(notification: NSNotification!) {
-        nextMeetingHintView.frame.origin.y = view.frame.height - nextMeetingHintView.frame.height
     }
 
     
@@ -130,6 +118,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        println("Closing keyboard")
         self.view.endEditing(true)
         return true
     }
@@ -161,7 +150,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         return cell
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var cell = tableView.cellForRowAtIndexPath(indexPath) as! RoomTableViewCell
         
         selectedRoom = cell.roomObject
