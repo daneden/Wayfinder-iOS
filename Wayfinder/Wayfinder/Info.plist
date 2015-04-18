@@ -27,7 +27,7 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Wayfinder uses your location to help show you how to get to your room.</string>
 	<key>UILaunchStoryboardName</key>
-	<string>Main</string>
+	<string>Launch Screen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>

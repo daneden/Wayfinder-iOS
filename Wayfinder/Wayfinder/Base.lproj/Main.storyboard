@@ -152,7 +152,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="442" y="389"/>
+            <point key="canvasLocation" x="349" y="389"/>
         </scene>
         <!--Room View Controller-->
         <scene sceneID="Gbi-Gc-6qq">
