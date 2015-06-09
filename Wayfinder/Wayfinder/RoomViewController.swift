@@ -45,8 +45,8 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         cardMapView.setUserTrackingMode(MKUserTrackingMode.None, animated: false)
         
         // Set the location for the MapView
-        var officeLocation = CLLocationCoordinate2DMake(37.776378, -122.391897)
-        var annotation = MKPointAnnotation()
+        let officeLocation = CLLocationCoordinate2DMake(37.776378, -122.391897)
+        let annotation = MKPointAnnotation()
         annotation.coordinate = officeLocation
         annotation.title = "Dropbox HQ"
         annotation.subtitle = "San Francisco, CA"
@@ -63,7 +63,7 @@ class RoomViewController: ViewController, MKMapViewDelegate {
         
         // Use a slightly taller frame since we're scaling it down
         view.frame = CGRectMake(0, 0, view.frame.width, view.frame.height * 1.2)
-        var offset = (view.frame.height - (view.frame.height / 1.2)) / 2
+        let offset = (view.frame.height - (view.frame.height / 1.2)) / 2
         
         // Scale down the view
         self.view.transform = CGAffineTransformMakeScale(0.9, 0.9)
@@ -81,8 +81,8 @@ class RoomViewController: ViewController, MKMapViewDelegate {
     }
     
     @IBAction func onCardPan(gesture: UIPanGestureRecognizer) {
-        var translation = gesture.translationInView(view)
-        var rotation = translation.x / 10 * CGFloat(M_PI / 180)
+        let translation = gesture.translationInView(view)
+        let rotation = translation.x / 10 * CGFloat(M_PI / 180)
         
         if gesture.state == UIGestureRecognizerState.Began {
             
@@ -93,7 +93,7 @@ class RoomViewController: ViewController, MKMapViewDelegate {
             self.view.center.x = cardInitialCenter.x + translation.x
             
             // Fade the card when it's swiped along X to indicate where it needs to travel
-            var alpha = (fabs(translation.x) / 300)
+            let alpha = (fabs(translation.x) / 300)
             self.view.alpha = 1 - alpha
             
             self.view.transform = CGAffineTransformRotate(transformation, rotation)
@@ -119,7 +119,7 @@ class RoomViewController: ViewController, MKMapViewDelegate {
                     delay: 0,
                     usingSpringWithDamping: 0.5,
                     initialSpringVelocity: 12,
-                    options: nil,
+                    options: [],
                     animations: {
                     self.view.center = self.cardInitialCenter
                     self.view.transform = self.transformation

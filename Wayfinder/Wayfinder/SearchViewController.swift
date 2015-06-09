@@ -39,14 +39,20 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         view.clipsToBounds = true
         
         // Load the JSON for the rooms
-        var roomData = NSData(contentsOfURL: NSURL(string: "https://wayfinder.daneden.me/rooms.json")!)
-        var roomJSON = NSJSONSerialization.JSONObjectWithData(roomData!, options: NSJSONReadingOptions.MutableContainers, error: nil) as! NSMutableArray
+        let roomData = NSData(contentsOfURL: NSURL(string: "https://wayfinder.daneden.me/rooms.json")!)
+        var roomJSON = []
+        
+        do {
+            roomJSON = try NSJSONSerialization.JSONObjectWithData(roomData!, options: NSJSONReadingOptions.MutableContainers) as! NSMutableArray
+        } catch {
+            print("Error getting JSON")
+        }
         
         // Put the rooms in a more manageable object
         for (object) in roomJSON {
-            var roomDict = object as! Dictionary<String, AnyObject>
+            let roomDict = object as! Dictionary<String, AnyObject>
             
-            var room = Room(json: roomDict)
+            let room = Room(json: roomDict)
             
             rooms.append(room)
             
@@ -62,7 +68,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         self.resultTableView.estimatedRowHeight = 74.0
         
         // Sort the array by name
-        rooms.sort({ $0.name.uppercaseString < $1.name.uppercaseString })
+        rooms.sortInPlace({ $0.name.uppercaseString < $1.name.uppercaseString })
         
         // Load the table data
         resultTableView.reloadData()
@@ -72,8 +78,8 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     func filterContentForSearchText(searchText: String) {
         // Filter the array using the filter method
         self.filteredRooms = self.rooms.filter({( room: Room) -> Bool in
-            let stringAsArray = room.name.componentsSeparatedByString(" ")
-            let stringMatch = room.name.rangeOfString("\\b" + searchText, options: NSStringCompareOptions.CaseInsensitiveSearch | NSStringCompareOptions.RegularExpressionSearch)
+            _ = room.name.componentsSeparatedByString(" ")
+            let stringMatch = room.name.rangeOfString("\\b" + searchText, options: [NSStringCompareOptions.CaseInsensitiveSearch, NSStringCompareOptions.RegularExpressionSearch])
             return (stringMatch != nil)
         })
     }
@@ -108,7 +114,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
             
         } else {
             
-            self.filterContentForSearchText(searchTextField.text)
+            self.filterContentForSearchText(searchTextField.text!)
             self.resultTableView.reloadData()
             
             UIView.animateWithDuration(0.2, animations: {
@@ -118,7 +124,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        println("Closing keyboard")
+        print("Closing keyboard")
         self.view.endEditing(true)
         return true
     }
@@ -132,8 +138,8 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = self.resultTableView.dequeueReusableCellWithIdentifier("TheRoomCell") as! RoomTableViewCell
-        var i: NSNumber = indexPath.row
+        let cell = self.resultTableView.dequeueReusableCellWithIdentifier("TheRoomCell") as! RoomTableViewCell
+        let i: NSNumber = indexPath.row
         var theRoom: Room
         
         if searchTextField.text != "" {
@@ -151,7 +157,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var cell = tableView.cellForRowAtIndexPath(indexPath) as! RoomTableViewCell
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! RoomTableViewCell
         
         selectedRoom = cell.roomObject
         
@@ -170,7 +176,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var destinationVC = segue.destinationViewController as! RoomViewController
+        let destinationVC = segue.destinationViewController as! RoomViewController
         
         destinationVC.modalPresentationStyle = UIModalPresentationStyle.Custom
         destinationVC.room = selectedRoom

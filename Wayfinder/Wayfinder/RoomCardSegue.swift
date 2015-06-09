@@ -23,17 +23,17 @@ class RoomCardSegue: NSObject, UIViewControllerTransitioningDelegate, UIViewCont
         return self
     }
     
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning) -> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return duration
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
-        var containerView = transitionContext.containerView()
-        var toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as UIViewController!
-        var fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as UIViewController!
+        let containerView = transitionContext.containerView()
+        let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey) as UIViewController!
+        let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey) as UIViewController!
         
         if (isPresenting == true) {
-            containerView.addSubview(toViewController.view)
+            containerView!.addSubview(toViewController.view)
             toViewController.view.alpha = 0
             toViewController.view.transform = CGAffineTransformMakeScale(0.2, 0.2)
             toViewController.view.frame.size.height = toViewController.view.frame.height * 0.75
@@ -43,7 +43,7 @@ class RoomCardSegue: NSObject, UIViewControllerTransitioningDelegate, UIViewCont
                 delay: 0,
                 usingSpringWithDamping: 0.7,
                 initialSpringVelocity: 4,
-                options: nil,
+                options: [],
                 animations: {
                     
                     UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
