@@ -39,7 +39,7 @@ class SearchViewController: ViewController, UITextFieldDelegate, UITableViewDele
         view.clipsToBounds = true
         
         // Load the JSON for the rooms
-        let roomData = NSData(contentsOfURL: NSURL(string: "https://wayfinder.daneden.me/rooms.json")!)
+        let roomData = NSData(contentsOfURL: NSURL(string: "https://wayfinder.daneden.me/assets/js/sfo-rooms.json")!)
         var roomJSON = []
         
         do {
