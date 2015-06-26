@@ -15,9 +15,9 @@ class Room: NSObject {
     var floor: String!
     
     init(json: Dictionary<String, AnyObject>) {
-        name = json["name"] as! NSString as String
-        landmarks = json["landmarks"] as! NSArray
-        floor = json["floor"] as! NSString as String
+        name = json["name"] as NSString as String
+        landmarks = json["landmarks"] as NSArray
+        floor = json["floor"] as NSString as String
         
     }
 }
